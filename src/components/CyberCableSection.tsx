@@ -39,14 +39,14 @@ export const CyberCableSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8 order-2 md:order-1"
+            className="space-y-8 order-1 md:order-1"
           >
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Security Hardware-Level</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-display font-black leading-tight text-white tracking-tighter">
+              <h2 className="text-4xl md:text-6xl font-sans font-black leading-tight text-white tracking-tighter">
                 Twelve Lords <span className="">Cyber Cable</span>
               </h2>
             </div>
@@ -102,7 +102,7 @@ export const CyberCableSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[500px] md:h-[650px] flex items-center justify-center order-1 md:order-2"
+            className="relative h-[500px] md:h-[650px] flex items-center justify-center order-2 md:order-2"
           >
             {/* Animated Glow Rings */}
             <motion.div

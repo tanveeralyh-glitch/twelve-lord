@@ -33,7 +33,7 @@ export const TechCard = ({ item, index = 0 }: TechCardProps) => {
           <Icon className="h-8 w-8 text-accent-foreground" />
         </div>
         
-        <h3 className="mt-8 font-display font-bold text-2xl transition-colors duration-300 text-foreground">
+        <h3 className="mt-8 font-sans font-black text-2xl tracking-tighter transition-colors duration-300 text-foreground uppercase">
           {item.title.split(' ').slice(0, -1).join(' ')} <span className="text-gradient-accent">{item.title.split(' ').pop()}</span>
         </h3>
       </Link>

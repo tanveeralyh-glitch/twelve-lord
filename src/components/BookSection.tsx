@@ -20,7 +20,7 @@ export const BookSection = () => {
       </div>
 
       <div className="container-tight relative z-10 px-6 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center">
           
           {/* LEFT: 3D Book Image */}
           <motion.div
@@ -28,17 +28,17 @@ export const BookSection = () => {
             whileInView={{ opacity: 1, x: 0, rotateY: -15 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative flex justify-center perspective-[1000px]"
+            className="relative flex justify-center perspective-[1000px] order-2 lg:order-1"
           >
             <div className="relative group">
               {/* Shadow behind book */}
               <div className="absolute -bottom-10 -right-10 w-full h-full bg-black/40 blur-3xl rounded-lg -z-10 group-hover:bg-black/50 transition-all duration-500" />
               {/* Subtle glowing aura */}
-              <div className="absolute inset-0 bg-[#FF6B00]/20 blur-2xl rounded-lg -z-20 pointer-events-none" />
+              
               <motion.div 
                 whileHover={{ rotateY: -5, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-full max-w-[320px] sm:max-w-[400px] aspect-[3/4.5] shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.7)] rounded-r-sm overflow-hidden transform-gpu"
+                className="relative w-full max-w-[400px] sm:max-w-[550px] lg:max-w-[650px] aspect-[3/4.5] shadow-[40px_40px_80px_-15px_rgba(0,0,0,0.8)] rounded-r-sm overflow-hidden transform-gpu"
               >
                 <img
                   src={mainBook.image}
@@ -59,10 +59,10 @@ export const BookSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-white"
+            className="text-white order-1 lg:order-2 max-w-[450px]"
           >
-            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-black font-display mb-8 leading-[1.0] tracking-[0.1em] uppercase text-white">
-              <span className="block">THE SELF +</span>
+            <h2 className="text-5xl sm:text-7xl lg:text-[80px] font-black font-sans mb-8 leading-[1.1] tracking-tighter uppercase text-white">
+              <span className="block">THE SELF</span>
               <span className="block">AS WITNESS</span>
             </h2>
             
