@@ -57,7 +57,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              <Logo />
+              <Logo variant="dark" />
             </div>
             <p className="mt-5 text-sm text-[#FAF9F6] max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
               Bridging the gap between ancient wisdom and modern technology. Twelve Lords is a sanctuary for thinkers, writers, and creators.

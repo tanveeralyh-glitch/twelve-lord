@@ -32,7 +32,7 @@ export const CyberCableSection = () => {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left: Enhanced Content */}
                       <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -96,7 +96,6 @@ export const CyberCableSection = () => {
             </div>
           </motion.div>
 
-          {/* Right: Live Animation Product View */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
