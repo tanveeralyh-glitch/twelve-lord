@@ -32,14 +32,14 @@ export const CyberCableSection = () => {
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-tight relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.3fr] gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left: Enhanced Content */}
-          <motion.div
+                      <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-8 order-2 md:order-1"
           >
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
@@ -102,7 +102,7 @@ export const CyberCableSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[500px] md:h-[650px] flex items-center justify-center"
+            className="relative h-[500px] md:h-[650px] flex items-center justify-center order-1 md:order-2"
           >
             {/* Animated Glow Rings */}
             <motion.div
