@@ -15,14 +15,14 @@ export const Tech = () => {
   return (
     <section id="tech" className="section-padding bg-[#0B121E] relative overflow-hidden border-t border-white/5">
       <div className="container-tight px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
-          {/* Left: Content */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
+          {/* Details - Order 1 on mobile, 1 on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-1 lg:order-1"
           >
             <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
               Hardware Security
@@ -33,7 +33,8 @@ export const Tech = () => {
               devices remain protected from modern attack vectors while delivering peak performance.
             </p>
             
-            <div className="pt-4">
+            {/* DESKTOP BUTTON */}
+            <div className="hidden lg:block pt-4">
               <Link
                 href="/tech"
                 className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
@@ -64,13 +65,13 @@ export const Tech = () => {
             </div>
           </motion.div>
 
-          {/* Right: Visual */}
+          {/* IMAGE - Order 2 on mobile, 2 on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative order-first lg:order-last mb-12 lg:mb-0"
+            className="relative order-2 lg:order-2 mb-12 lg:mb-0"
           >
             {/* Pulsing Background Glow */}
             <motion.div 
@@ -135,6 +136,16 @@ export const Tech = () => {
             <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl hidden sm:block" />
             <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-primary/30 rounded-bl-3xl hidden sm:block" />
           </motion.div>
+
+          {/* MOBILE BUTTON - Order 3 on mobile */}
+          <div className="order-3 lg:hidden w-full flex justify-center">
+            <Link
+              href="/tech"
+              className="group relative px-10 py-5 rounded-full border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full"
+            >
+              View Specifications <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

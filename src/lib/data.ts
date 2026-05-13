@@ -50,6 +50,7 @@ export const books: Book[] = [
     image: "/images/books/self-as-witness.png",
     featured: true,
     gallery: [
+      "/images/books/self-as-witness-full.png",
       "/images/books/self-as-witness.png",
       "/images/books/self-as-witness-perspective.png",
       "/images/books/self-as-witness-desk.png"
