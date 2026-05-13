@@ -47,7 +47,7 @@ export const books: Book[] = [
       "Deep Self-Awareness and Insight",
       "A Structured Strategy for Inner Mastery"
     ],
-    image: "/images/books/self-as-witness.png",
+    image: "/images/about-saturn.png",
     featured: true,
     gallery: [
       "/images/books/self-as-witness.png",
