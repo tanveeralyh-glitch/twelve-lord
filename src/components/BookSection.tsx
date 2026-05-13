@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { books } from "@/lib/data";
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingCart, Download } from "lucide-react";
 
 export const BookSection = () => {
@@ -73,15 +74,18 @@ export const BookSection = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] aspect-[3/4.5] shadow-[40px_40px_80px_-15px_rgba(0,0,0,0.8)] rounded-r-sm overflow-hidden transform-gpu"
               >
-                <img
+                <Image
                   src={mainBook.image}
                   alt={mainBook.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  className="object-cover"
+                  style={{ imageRendering: 'auto' }}
                 />
                 {/* Book Spine Edge effect */}
-                <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-black/40 to-transparent" />
+                <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-black/40 to-transparent z-10" />
                 {/* Surface Shine */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-10" />
               </motion.div>
             </div>
           </motion.div>

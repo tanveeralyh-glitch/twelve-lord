@@ -6,6 +6,7 @@ import type { Book } from "@/lib/data";
 import { useAppState } from "@/context/AppStateContext";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 interface FeaturedBookProps {
@@ -119,11 +120,12 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                 
                 {book.image ? (
                   <div className="relative w-full h-full rounded-lg overflow-hidden shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.7)] transform-gpu transition-all duration-700 group-hover:rotate-0">
-                    <img
+                    <Image
                       src={book.image}
                       alt={book.title}
-                      loading="lazy"
-                      className="w-full h-full object-contain bg-white/5"
+                      fill
+                      priority
+                      className="object-contain bg-white/5"
                     />
                     {/* Subtle Spine Shine */}
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent pointer-events-none" />
