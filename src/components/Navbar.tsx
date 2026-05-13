@@ -60,7 +60,9 @@ export const Navbar = () => {
     >
       <div className="w-full px-8 sm:px-16 flex items-center justify-between py-3">
         <div className="flex-shrink-0">
-          <Logo />
+          <Link href="/" className="text-xl font-black tracking-[0.2em] uppercase text-foreground transition-opacity hover:opacity-70">
+            Twelve Lords
+          </Link>
         </div>
 
         <nav className="hidden lg:flex items-center gap-10">
