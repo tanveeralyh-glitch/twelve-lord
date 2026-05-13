@@ -15,13 +15,42 @@ export const Knowledge = () => {
   return (
     <section id="knowledge" className="section-padding bg-secondary/20 relative overflow-hidden">
       <div className="container-tight relative px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
+          {/* TEXT - Order 1 on mobile, 2 on desktop */}
+          <div className="space-y-8 text-center lg:text-left order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
+                Research & Development
+              </span>
+              <h2 className="text-balance leading-tight text-black">Security insights that build lasting resilience.</h2>
+              <p className="max-w-xl mx-auto lg:mx-0">
+                We distill complex security concepts and industry trends into actionable 
+                knowledge blocks designed for modern technical teams and decision-makers.
+              </p>
+              
+              {/* DESKTOP BUTTON */}
+              <div className="hidden lg:block pt-4">
+                <Link
+                  href="/books"
+                  className="btn-outline inline-flex items-center justify-center gap-2 text-sm w-full sm:w-auto"
+                >
+                  Explore Knowledge Base <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* IMAGE - Order 2 on mobile, 1 on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative order-last lg:order-first"
+            className="relative order-2 lg:order-1"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-soft border border-border">
               <img
@@ -41,30 +70,14 @@ export const Knowledge = () => {
             </div>
           </motion.div>
 
-          <div className="space-y-8 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+          {/* MOBILE BUTTON - Order 3 on mobile */}
+          <div className="order-3 lg:hidden w-full flex justify-center">
+            <Link
+              href="/books"
+              className="btn-outline inline-flex items-center justify-center gap-2 text-sm w-full"
             >
-              <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs mb-4 block">
-                Research & Development
-              </span>
-              <h2 className="text-balance leading-tight text-black">Security insights that build lasting resilience.</h2>
-              <p className="max-w-xl mx-auto lg:mx-0">
-                We distill complex security concepts and industry trends into actionable 
-                knowledge blocks designed for modern technical teams and decision-makers.
-              </p>
-              
-              <div className="pt-4">
-                <Link
-                  href="/books"
-                  className="btn-outline inline-flex items-center justify-center gap-2 text-sm w-full sm:w-auto"
-                >
-                  Explore Knowledge Base <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </motion.div>
+              Explore Knowledge Base <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
 

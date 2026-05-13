@@ -48,9 +48,9 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
             </motion.div>
           </div>
 
-          <div className="grid sm:grid-cols-[1.2fr_1fr] items-center">
-            {/* LEFT: Content side (Text) */}
-            <div className="p-8 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5 bg-white/[0.01]">
+          <div className="flex flex-col lg:grid lg:grid-cols-[1.2fr_1fr] items-center">
+            {/* TEXT (Details) - Order 1 on mobile, 1 on desktop */}
+            <div className="p-8 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5 bg-white/[0.01] order-1 lg:order-1 w-full">
               <div className="space-y-10 max-w-xl">
                 <div>
                   <motion.div
@@ -77,7 +77,8 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   {book.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-6 pt-10">
+                {/* DESKTOP BUTTONS */}
+                <div className="hidden lg:flex flex-wrap items-center gap-6 pt-10">
                   <button 
                     onClick={handleAddToCart}
                     disabled={cart.some(b => b.title === book.title)}
@@ -104,8 +105,8 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
               </div>
             </div>
 
-            {/* RIGHT: Image & Benefits Side */}
-            <div className="p-8 lg:p-16 flex flex-col items-center">
+            {/* IMAGE & Benefits Side - Order 2 on mobile, 2 on desktop */}
+            <div className="p-8 lg:p-16 flex flex-col items-center order-2 lg:order-2 w-full">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
                 whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
@@ -158,6 +159,32 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* MOBILE BUTTONS - Order 3 on mobile */}
+            <div className="order-3 lg:hidden p-8 pt-0 w-full flex flex-col sm:flex-row items-center gap-4 justify-center">
+              <button 
+                onClick={handleAddToCart}
+                disabled={cart.some(b => b.title === book.title)}
+                className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-[#252121] text-white font-black text-lg transition-all duration-300 hover:bg-primary hover:text-black disabled:opacity-50 shadow-soft w-full sm:w-auto"
+              >
+                {added ? <Check className="h-6 w-6" /> : <ShoppingCart className="h-6 w-6" />}
+                {cart.some(b => b.title === book.title) ? "In Cart" : "Buy Now"}
+              </button>
+              
+              <button 
+                onClick={() => toggleFavorite(book)}
+                className={`flex items-center justify-center gap-3 px-10 py-5 rounded-2xl border-2 border-[#252121] font-black text-lg transition-all duration-300 w-full sm:w-auto ${isFavorite(book.id) ? "text-primary border-primary" : "text-[#252121]"}`}
+              >
+                <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-primary text-primary" : ""}`} />
+                {isFavorite(book.id) ? "Favorited" : "Save"}
+              </button>
+
+              <Link href={`/books/${book.id}`} className="w-full sm:w-auto">
+                <button className="px-10 py-5 rounded-2xl border-2 border-[#252121] text-[#252121] font-black text-lg h-auto transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black group w-full">
+                  Details <Info className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                </button>
+              </Link>
             </div>
           </div>
         </motion.div>

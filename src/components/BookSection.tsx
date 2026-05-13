@@ -22,7 +22,25 @@ export const BookSection = () => {
       <div className="container-tight relative z-10 px-6 sm:px-10 lg:px-16">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
-          {/* LEFT: 3D Book Image */}
+          {/* TEXT (Details) - Order 1 on mobile, 2 on desktop */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-white order-1 lg:order-2 max-w-[420px]"
+          >
+            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-black font-sans mb-6 leading-[1.1] tracking-tighter uppercase text-white">
+              <span className="block">THE SELF</span>
+              <span className="block">AS WITNESS</span>
+            </h2>
+            
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 lg:mb-0 max-w-xl font-medium">
+              {mainBook.description}
+            </p>
+          </motion.div>
+
+          {/* IMAGE - Order 2 on mobile, 1 on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50, rotateY: 30 }}
             whileInView={{ opacity: 1, x: 0, rotateY: -15 }}
@@ -52,37 +70,26 @@ export const BookSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT: Content side */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          {/* BUTTONS - Order 3 on mobile, 2 on desktop */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-white order-1 lg:order-2 max-w-[420px]"
+            transition={{ duration: 1, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 order-3 lg:order-2 lg:mt-10 w-full"
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-black font-sans mb-6 leading-[1.1] tracking-tighter uppercase text-white">
-              <span className="block">THE SELF</span>
-              <span className="block">AS WITNESS</span>
-            </h2>
-            
-            <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 max-w-xl font-medium">
-              {mainBook.description}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Link 
-                href={`/books/${mainBook.id}`}
-                className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#E65100] text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all shadow-lg hover:shadow-[#FF6B00]/40 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
-              >
-                Learn More
-              </Link>
-              <Link 
-                href={`/books/${mainBook.id}`}
-                className="w-full sm:w-auto border-2 border-white/80 hover:border-white text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
-              >
-                The Book Archive
-              </Link>
-            </div>
+            <Link 
+              href={`/books/${mainBook.id}`}
+              className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#E65100] text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all shadow-lg hover:shadow-[#FF6B00]/40 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+            >
+              Learn More
+            </Link>
+            <Link 
+              href={`/books/${mainBook.id}`}
+              className="w-full sm:w-auto border-2 border-white/80 hover:border-white text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+            >
+              The Book Archive
+            </Link>
           </motion.div>
 
         </div>

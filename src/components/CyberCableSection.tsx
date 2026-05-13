@@ -34,7 +34,8 @@ export const CyberCableSection = () => {
       <div className="container-tight relative z-10">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left: Enhanced Content */}
-                      <motion.div
+                      {/* Details - Order 1 on mobile, 1 on desktop */}
+          <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -78,7 +79,8 @@ export const CyberCableSection = () => {
                </div>
             </div>
 
-            <div className="pt-6 flex flex-wrap gap-4">
+            {/* DESKTOP BUTTONS */}
+            <div className="hidden md:flex flex-wrap gap-4 pt-6">
               <button 
                 onClick={() => router.push('/products/cyber-cable')}
                 className="group relative px-8 py-4 rounded-2xl border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black"
@@ -96,6 +98,7 @@ export const CyberCableSection = () => {
             </div>
           </motion.div>
 
+          {/* IMAGE - Order 2 on mobile, 2 on desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -179,6 +182,24 @@ export const CyberCableSection = () => {
                <div className="text-primary/100">ENCRYPTION: HARDWARE_FORCED</div>
             </div>
           </motion.div>
+
+          {/* MOBILE BUTTONS - Order 3 on mobile */}
+          <div className="order-3 md:hidden flex flex-col sm:flex-row gap-4 w-full pt-4">
+            <button 
+              onClick={() => router.push('/products/cyber-cable')}
+              className="group relative px-8 py-4 rounded-2xl border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black w-full flex items-center justify-center"
+            >
+              Learn More
+            </button>
+
+            <button 
+              onClick={handleAddToCart}
+              className="group relative px-8 py-4 rounded-2xl bg-white text-black font-black text-base transition-all duration-300 hover:bg-primary hover:text-black hover:shadow-glow flex items-center justify-center gap-2 w-full"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              <span>{isInCart ? "In Cart" : "Add to Cart"}</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

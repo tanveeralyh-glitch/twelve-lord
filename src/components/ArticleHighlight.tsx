@@ -162,8 +162,8 @@ export const ArticleHighlight = ({
           className="card-premium overflow-hidden border-none bg-secondary/30 dark:bg-secondary/10 !p-0"
         >
           <div className="flex flex-col lg:flex-row min-h-[500px]">
-            {/* LEFT: Content */}
-            <div className="w-full lg:w-[60%] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center">
+            {/* TEXT (Details) - Order 1 on mobile, 1 on desktop */}
+            <div className="w-full lg:w-[60%] p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-center order-1">
               <div className="space-y-6 sm:space-y-8">
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -183,7 +183,8 @@ export const ArticleHighlight = ({
                   {description}
                 </p>
 
-                <div className="pt-4 sm:pt-8">
+                {/* DESKTOP BUTTON */}
+                <div className="hidden lg:block pt-4 sm:pt-8">
                   <Link href={link}>
                     <button className="btn-primary px-10 py-4 flex items-center justify-center gap-3 text-base">
                       Read Article <ArrowRight className="w-5 h-5" />
@@ -193,8 +194,8 @@ export const ArticleHighlight = ({
               </div>
             </div>
 
-            {/* RIGHT: Image/Visual */}
-            <div className="w-full lg:w-[40%] min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] relative order-first lg:order-last">
+            {/* IMAGE/Visual - Order 2 on mobile, 2 on desktop */}
+            <div className="w-full lg:w-[40%] min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] relative order-2 lg:order-last">
               <div className="absolute inset-0 bg-secondary/50 dark:bg-slate-900/50" />
               <motion.div 
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -212,6 +213,15 @@ export const ArticleHighlight = ({
                 {/* Clean gradient overlay for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-background/80 lg:from-secondary/30 dark:from-black/80 lg:dark:from-black/40 to-transparent" />
               </motion.div>
+            </div>
+
+            {/* MOBILE BUTTON - Order 3 on mobile */}
+            <div className="order-3 lg:hidden p-6 pt-0">
+              <Link href={link} className="w-full">
+                <button className="btn-primary w-full px-10 py-5 flex items-center justify-center gap-3 text-base">
+                  Read Article <ArrowRight className="w-5 h-5" />
+                </button>
+              </Link>
             </div>
           </div>
         </motion.div>
