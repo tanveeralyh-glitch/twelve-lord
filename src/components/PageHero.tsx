@@ -12,7 +12,7 @@ interface PageHeroProps {
 const ReadingAnimation = () => (
   <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center">
     <motion.div
-      animate={{ 
+      animate={{
         rotateY: [0, -10, 0],
         scale: [1, 1.05, 1],
       }}
@@ -21,7 +21,7 @@ const ReadingAnimation = () => (
     >
       <BookOpen className="h-24 w-24 md:h-32 md:w-32 text-accent" strokeWidth={1} />
     </motion.div>
-    <motion.div 
+    <motion.div
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: [1, 1.5, 2], opacity: [0, 0.2, 0] }}
       transition={{ duration: 3, repeat: Infinity }}
@@ -33,7 +33,7 @@ const ReadingAnimation = () => (
 const WritingAnimation = () => (
   <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center">
     <motion.div
-      animate={{ 
+      animate={{
         x: [-10, 10, -10],
         y: [-5, 5, -5],
         rotate: [-5, 5, -5],
@@ -43,7 +43,7 @@ const WritingAnimation = () => (
     >
       <PenTool className="h-24 w-24 md:h-32 md:w-32 text-accent" strokeWidth={1} />
     </motion.div>
-    <motion.div 
+    <motion.div
       initial={{ height: 0 }}
       animate={{ height: [0, 20, 0] }}
       transition={{ duration: 1.5, repeat: Infinity }}
@@ -55,7 +55,7 @@ const WritingAnimation = () => (
 const CodingAnimation = () => (
   <div className="relative w-32 h-32 md:w-48 md:h-48 flex items-center justify-center">
     <motion.div
-      animate={{ 
+      animate={{
         scale: [1, 1.1, 1],
       }}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

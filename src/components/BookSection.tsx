@@ -38,6 +38,22 @@ export const BookSection = () => {
             <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-10 lg:mb-0 max-w-xl font-medium">
               {mainBook.description}
             </p>
+
+            {/* DESKTOP BUTTONS */}
+            <div className="hidden lg:flex flex-row items-center gap-4 mt-10">
+              <Link 
+                href={`/books/${mainBook.id}`}
+                className="bg-[#FF6B00] hover:bg-[#E65100] text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all shadow-lg hover:shadow-[#FF6B00]/40 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+              >
+                Learn More
+              </Link>
+              <Link 
+                href={`/books/${mainBook.id}`}
+                className="border-2 border-white/80 hover:border-white text-white px-8 py-4 text-base font-black uppercase tracking-wider rounded-md transition-all hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+              >
+                The Book Archive
+              </Link>
+            </div>
           </motion.div>
 
           {/* IMAGE - Order 2 on mobile, 1 on desktop */}
@@ -70,13 +86,13 @@ export const BookSection = () => {
             </div>
           </motion.div>
 
-          {/* BUTTONS - Order 3 on mobile, 2 on desktop */}
+          {/* MOBILE BUTTONS - Order 3 on mobile */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 order-3 lg:order-2 lg:mt-10 w-full"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 order-3 lg:hidden w-full"
           >
             <Link 
               href={`/books/${mainBook.id}`}

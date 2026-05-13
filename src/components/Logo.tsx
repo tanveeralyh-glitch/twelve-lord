@@ -13,7 +13,7 @@ export const Logo = ({ variant = "light" }: LogoProps) => (
     <motion.img 
       src={logo.src} 
       alt="Twelve Lords Logo" 
-      className={`h-[74px] md:h-[90px] w-auto object-contain ${variant === "light" ? "mix-blend-multiply" : ""}`}
+      className={`h-[74px] md:h-[90px] w-auto object-contain mix-blend-multiply brightness-[1.05]`}
       animate={{
         y: [0, -2, 0]
       }}
