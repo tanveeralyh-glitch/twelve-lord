@@ -7,7 +7,7 @@ export const ArticleHero = () => {
   const [search, setSearch] = useState("");
 
   return (
-    <section className="pt-40 bg-[#DCE2E2]">
+    <section className="pt-36 md:pt-48 bg-[#DCE2E2]">
       <div className="container-tight px-6 pb-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,20 +15,20 @@ export const ArticleHero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-black tracking-tightest mb-8 uppercase">
+          <h1 className="text-[32px] sm:text-5xl md:text-6xl font-display font-black text-black tracking-tight mb-4 md:mb-8 uppercase">
             Articles
           </h1>
           
-          <div className="max-w-3xl mx-auto">
-            <p className="text-sm sm:text-base text-black font-medium leading-relaxed">
-              I’ve written hundreds of articles on everything from psychology and philosophy, to productivity and life purpose. Below is a collection of my best work, categorized by topic. Or, if you’re looking for something specific, use the search bar.
+          <div className="max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-black/80 font-medium leading-relaxed">
+              I’ve written hundreds of articles on everything from psychology and philosophy, to productivity and life purpose. Below is a collection of my best work, categorized by topic.
             </p>
           </div>
         </motion.div>
       </div>
 
       {/* New Orange Search Bar */}
-      <div className="bg-[#FF6B00] py-6">
+      <div className="bg-[#FF6B00] py-8 md:py-12">
         <div className="container-tight px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <h2 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
             Looking for something specific?
@@ -45,7 +45,7 @@ export const ArticleHero = () => {
               />
               <button
                 type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1A1A1A] text-white px-8 rounded-full text-xs font-black uppercase tracking-widest hover:bg-black transition-colors"
+                className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1A1A1A] text-white px-6 md:px-8 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-black transition-colors"
               >
                 SEARCH
               </button>

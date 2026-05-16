@@ -37,7 +37,7 @@ export const LatestArticles = ({ articles }: LatestArticlesProps) => {
                   {article.publishDate}
                 </div>
                 
-                <h3 className="flex-1 text-2xl font-bold text-black leading-tight">
+                <h3 className="flex-1 text-xl md:text-2xl font-bold text-black leading-tight">
                   {article.title}
                 </h3>
                 

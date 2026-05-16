@@ -19,7 +19,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-32"
+      className="relative min-h-[90vh] flex items-center overflow-hidden pt-36 md:pt-48"
     >
       {/* Clean Background with Subtle Texture */}
       <div className="absolute inset-0 bg-background -z-10" />
@@ -43,9 +43,9 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-black leading-[1.1] text-black mb-10 tracking-tighter text-[40px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
+              className="font-black leading-[1.1] text-black mb-6 md:mb-10 tracking-tight text-[32px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
-              Master Your <span className="">Digital Frontier</span> With Timeless Truths
+              Master Your <span className="text-primary">Digital Frontier</span> With Timeless Truths
             </motion.h1>
 
             {/* Paragraph */}
@@ -53,7 +53,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-foreground/70 leading-relaxed w-full mb-12 text-base sm:text-lg font-medium"
+              className="text-black leading-relaxed w-full mb-10 md:mb-12 text-base sm:text-lg font-medium max-w-2xl mx-auto"
             >
               Twelve Lords explores the architecture of the modern world. From hardware-level security to philosophical deep-dives, we provide the clarity needed to navigate a complex future.
             </motion.p>
@@ -63,7 +63,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full px-4"
             >
               <Link
                 href="/tech"
