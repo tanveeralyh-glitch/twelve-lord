@@ -1,40 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/assets/logo.png";
-import { motion } from "framer-motion";
+import logo from "@/assets/logo.jpeg";
+
 
 interface LogoProps {
   variant?: "light" | "dark";
+  className?: string;
+  imgClassName?: string;
+  showBg?: boolean;
 }
 
-export const Logo = ({ variant = "light" }: LogoProps) => (
-  <div className="relative">
-    <svg width="0" height="0" className="absolute">
-      <filter id="remove-bg" colorInterpolationFilters="sRGB">
-        <feColorMatrix 
-          type="matrix" 
-          values="1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  -1.1 -1.1 -1.1 3.3 0" 
-        />
-      </filter>
-    </svg>
-    <Link href="/" className="flex items-center group transition-transform hover:scale-105 active:scale-95 duration-300">
-      <motion.img 
-        src={logo.src} 
-        alt="Twelve Lords Logo" 
-        className="h-[74px] md:h-[90px] w-auto object-contain"
-        style={{ filter: "url(#remove-bg)" }}
-        animate={{
-          y: [0, -2, 0]
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+export const Logo = ({ 
+  variant = "light", 
+  className = "", 
+  imgClassName = "h-24 md:h-32",
+  showBg = true 
+}: LogoProps) => (
+  <div className={`relative ${className}`}>
+    {!showBg && (
+      <svg width="0" height="0" className="absolute">
+        <filter id="remove-black" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    10 10 10 0 -0.1"
+          />
+        </filter>
+      </svg>
+    )}
+    <Link href="/" className="flex items-center">
+      <img
+        src={logo.src}
+        alt="Twelve Lords Logo"
+        className={`w-auto object-contain ${imgClassName}`}
+        style={!showBg ? { filter: "url(#remove-black)" } : {}}
       />
     </Link>
   </div>

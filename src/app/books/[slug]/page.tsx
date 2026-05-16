@@ -55,7 +55,7 @@ export default function BookDetailPage() {
     <main className="min-h-screen relative overflow-hidden">
       {/* Split Background */}
       <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none">
-        <div className="flex-1 bg-black" />
+        <div className="flex-1 bg-[#F5F5F7]" />
         <div className="flex-1 bg-white" />
       </div>
 
@@ -69,10 +69,10 @@ export default function BookDetailPage() {
           <Button 
             onClick={() => router.push('/books')} 
             variant="ghost" 
-            className="group text-muted-foreground hover:bg-white hover:text-black transition-all px-6 py-3 rounded-xl flex items-center gap-2"
+            className="group text-muted-foreground hover:bg-black/5 hover:text-black transition-all px-6 py-3 rounded-xl flex items-center gap-2"
           >
             <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" /> 
-            <span className="font-bold uppercase tracking-widest text-sm text-white/60">Back to Library</span>
+            <span className="font-bold uppercase tracking-widest text-sm text-black/60">Back to Library</span>
           </Button>
         </motion.div>
 
@@ -89,21 +89,21 @@ export default function BookDetailPage() {
                 <span className="px-3 py-1 bg-accent/10 border border-accent/20 rounded-full flex items-center gap-2">
                   <Tag className="w-3 h-3" /> {book.genre}
                 </span>
-                <span className="flex items-center gap-2 text-white/60"><User className="h-4 w-4" /> Author: {book.author}</span>
-                <span className="flex items-center gap-2 text-white/60"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
+                <span className="flex items-center gap-2 text-black/60"><User className="h-4 w-4" /> Author: {book.author}</span>
+                <span className="flex items-center gap-2 text-black/60"><Calendar className="h-4 w-4" /> {book.publishDate}</span>
               </div>
 
-              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight text-white tracking-tighter shadow-sm whitespace-pre-line">
+              <h1 className="text-4xl md:text-7xl font-display font-black leading-tight text-black tracking-tighter shadow-sm whitespace-pre-line">
                 {book.title}
               </h1>
 
               {book.subtitle && (
-                <p className="text-xl md:text-3xl text-white/70 font-semibold leading-snug">
+                <p className="text-xl md:text-3xl text-black/70 font-semibold leading-snug">
                   {book.subtitle}
                 </p>
               )}
 
-              <p className="text-lg md:text-xl text-white/60 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-black/60 leading-relaxed font-medium">
                 {book.description}
               </p>
             </motion.div>
@@ -118,13 +118,13 @@ export default function BookDetailPage() {
               >
                 <div className="flex items-center gap-3">
                    <Sparkles className="w-5 h-5 text-accent" />
-                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white">Core ADVANTAGES</h3>
+                   <h3 className="text-xs font-black uppercase tracking-[0.3em] text-black">Core ADVANTAGES</h3>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {book.benefits.map((benefit) => (
-                    <div key={benefit} className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-colors group">
+                    <div key={benefit} className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-black/5 border border-black/10 hover:border-accent/30 transition-colors group">
                       <div className="h-2 w-2 rounded-full bg-accent animate-pulse group-hover:scale-150 transition-transform" />
-                      <span className="text-sm font-bold text-white/80">{benefit}</span>
+                      <span className="text-sm font-bold text-black/80">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -133,7 +133,7 @@ export default function BookDetailPage() {
 
             {/* Detailed Sections (Rich Content) */}
             {book.sections && (
-              <div className="space-y-12 border-t border-white/10 pt-12">
+              <div className="space-y-12 border-t border-black/10 pt-12">
                 {book.sections.map((section, idx) => (
                   <motion.div 
                     key={section.title}
@@ -142,12 +142,12 @@ export default function BookDetailPage() {
                     transition={{ delay: 0.4 + idx * 0.1 }}
                     className="space-y-4"
                   >
-                    <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+                    <h2 className="text-2xl md:text-3xl font-display font-bold text-black">
                       {section.title}
                     </h2>
                     <div className="space-y-4">
                       {section.content.map((para, pIdx) => (
-                        <p key={pIdx} className="text-white/60 leading-relaxed text-lg">
+                        <p key={pIdx} className="text-black/60 leading-relaxed text-lg">
                           {para}
                         </p>
                       ))}
@@ -175,10 +175,10 @@ export default function BookDetailPage() {
               
               <button 
                 onClick={() => toggleFavorite(book)}
-                className={`flex items-center gap-3 px-12 py-6 rounded-2xl border transition-all hover:bg-white/5 font-black text-xl ${
+                className={`flex items-center gap-3 px-12 py-6 rounded-2xl border transition-all hover:bg-black/5 font-black text-xl ${
                   isFavorite(book.id) 
                   ? "text-accent bg-accent/5 border-accent/20" 
-                  : "text-white border-white/10"
+                  : "text-black border-black/10"
                 }`}
               >
                 <Heart className={`h-6 w-6 ${isFavorite(book.id) ? "fill-accent text-accent" : ""}`} />

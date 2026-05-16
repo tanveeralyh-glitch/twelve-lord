@@ -51,13 +51,13 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer id="footer" className="relative bg-[#0B121E] text-white pt-16 sm:pt-20 pb-10 border-t border-white/10">
+    <footer id="footer" className="relative bg-black text-white pt-16 sm:pt-20 pb-10 border-t border-white/10">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
       <div className="container-tight px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5 text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              {/* Logo removed */}
+              <Logo imgClassName="h-16 md:h-20" showBg={false} />
             </div>
             <p className="mt-5 text-sm text-[#FAF9F6] max-w-sm mx-auto lg:mx-0 leading-relaxed font-medium">
               Bridging the gap between ancient wisdom and modern technology. Twelve Lords is a sanctuary for thinkers, writers, and creators.

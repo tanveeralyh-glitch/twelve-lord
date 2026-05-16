@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Lora', 'serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
         serif: ['Lora', 'serif'],
       },
       colors: {
@@ -23,8 +23,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#FDB511",
-          foreground: "#000000",
+          DEFAULT: "#312E81",
+          foreground: "#ffffff",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -39,8 +39,8 @@ export default {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#FDB511",
-          foreground: "#000000",
+          DEFAULT: "#312E81",
+          foreground: "#ffffff",
           glow: "hsl(var(--accent-glow))",
         },
         popover: {
@@ -55,7 +55,7 @@ export default {
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'premium': 'var(--shadow-premium)',
-        'accent-glow': '0 10px 40px -10px rgba(253, 181, 17, 0.5)',
+        'accent-glow': '0 10px 40px -10px rgba(49, 46, 129, 0.5)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -103,8 +103,8 @@ export default {
           "50%": { transform: "translateY(-12px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(253, 181, 17, 0.4)" },
-          "50%": { boxShadow: "0 0 0 16px rgba(253, 181, 17, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(49, 46, 129, 0.4)" },
+          "50%": { boxShadow: "0 0 0 16px rgba(49, 46, 129, 0)" },
         },
         "marquee-slow": {
           from: { transform: "translateX(0)" },

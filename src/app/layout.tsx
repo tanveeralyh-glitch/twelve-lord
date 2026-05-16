@@ -19,6 +19,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
 export const metadata: Metadata = {
   title: "Twelve Lords | Modern Publishing & Knowledge Sharing",
   description: "Redefining modern publishing through knowledge sharing and deep tech insights.",
@@ -39,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} antialiased overflow-x-hidden`}>
+      <body className={`${inter.variable} ${poppins.variable} ${playfair.variable} antialiased overflow-x-hidden`}>
         {/* SVG Defs for Gradients */}
         <svg width="0" height="0" className="absolute">
           <defs>

@@ -1,42 +1,36 @@
 "use client";
 
-import { PageHero } from "@/components/PageHero";
-import { ArticleHighlight } from "@/components/ArticleHighlight";
-import { ArticleCard } from "@/components/ArticleCard";
+import { ArticleHero } from "@/components/ArticleHero";
+import { LatestArticles } from "@/components/LatestArticles";
+import { ArticlesByDate } from "@/components/ArticlesByDate";
+import { Newsletter } from "@/components/Newsletter";
 import { articles } from "@/lib/data";
 
 export default function ArticlesPage() {
+  // Group articles by category for the category sections
+  const philosophyArticles = articles.filter(a => a.category === "Philosophy").slice(0, 3);
+  const productivityArticles = articles.filter(a => a.category === "Productivity").slice(0, 3);
+  const cultureArticles = articles.filter(a => a.category === "Culture").slice(0, 3);
+  const techArticles = articles.filter(a => a.category === "Tech").slice(0, 3);
+  
+  // Latest articles (first 8)
+  const latestArticles = [...articles].sort((a, b) => 
+    new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+  ).slice(0, 8);
+
   return (
-    <main className="min-h-screen bg-background text-foreground pt-20 pb-20">
-      {/* Latest Article (Unchanged) */}
-      <ArticleHighlight
-        heading="Latest Article"
-        articleTitle="As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness"
-        description="Despite massive investments in security technology, 90% of breaches still involve human error. Explore why organizational culture is your ultimate firewall."
-        imagePath="/cybersecurity-featured.png"
-        link="/articles/cyber-threats-awareness"
-        showMoreLink={false}
-      />
+    <main className="min-h-screen bg-white">
+      {/* Hero Section (includes search bar) */}
+      <ArticleHero />
 
-      {/* New Article (Added Below) */}
-      <ArticleHighlight
-        heading="Social Analysis"
-        articleTitle="A Generation Under Fear: How Corporal Punishment Is Quietly Damaging Pakistan’s Youth"
-        description="Every generation is told it is the future of the nation. But what happens when that future is shaped not by curiosity and confidence, but by fear? Across many schools and madrassas in Pakistan, corporal punishment remains an embedded part of discipline, leaving lasting psychological scars on the nation's youth."
-        imagePath="/images/article.jpg"
-        link="/articles/pakistan-corporal-punishment"
-        showMoreLink={false}
-      />
+      {/* Latest Articles Section */}
+      <LatestArticles articles={latestArticles} />
 
-      {/* Article 3 (Added Below) */}
-      <ArticleHighlight
-        heading="Educational Critique"
-        articleTitle="9AM Exams Are Failing Students — And We Know It"
-        description="At 9:00 a.m. sharp, millions of students sit in a heavy silence, staring at exam papers that will shape their lives. But is this standardised system truly fair, or is it merely testing how well a student can perform while half-asleep?"
-        imagePath="/images/article.jpg"
-        link="/articles/9am-exams-failing-students"
-        showMoreLink={false}
-      />
+      <Newsletter />
+
+      {/* Articles By Date Section */}
+      <ArticlesByDate />
     </main>
   );
 }
+

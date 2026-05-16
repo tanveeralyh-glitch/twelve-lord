@@ -29,7 +29,7 @@ export const TechCard = ({ item, index = 0 }: TechCardProps) => {
       className="p-8 rounded-[2rem] bg-card border border-border transition-all duration-500"
     >
       <Link href="/tech" className="block">
-        <div className="h-16 w-16 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-accent-glow transition-transform duration-500">
+        <div className="h-16 w-16 rounded-2xl bg-primary flex items-center justify-center shadow-accent-glow transition-transform duration-500">
           <Icon className="h-8 w-8 text-accent-foreground" />
         </div>
         

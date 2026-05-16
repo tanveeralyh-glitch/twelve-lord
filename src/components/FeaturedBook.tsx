@@ -109,26 +109,22 @@ export const FeaturedBook = ({ book }: FeaturedBookProps) => {
             {/* IMAGE & Benefits Side - Order 2 on mobile, 2 on desktop */}
             <div className="p-8 lg:p-16 flex flex-col items-center order-2 lg:order-2 w-full">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 2 }}
+                initial={{ opacity: 0, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="relative aspect-[3/4.5] w-full max-w-[320px] mb-16"
               >
-                {/* Book Shadow for depth */}
-                <div className="absolute -inset-4 bg-accent/10 blur-[40px] rounded-full opacity-50" />
                 
                 {book.image ? (
-                  <div className="relative w-full h-full rounded-lg overflow-hidden shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.7)] transform-gpu transition-all duration-700 group-hover:rotate-0">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden border border-white/10 transform-gpu transition-all duration-700">
                     <Image
                       src={book.image}
                       alt={book.title}
                       fill
                       priority
-                      className="object-contain bg-white/5"
+                      className="object-cover"
                     />
-                    {/* Subtle Spine Shine */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent pointer-events-none" />
                   </div>
                 ) : (
                   <div className="w-full h-full bg-slate-900 flex items-center justify-center rounded-xl">

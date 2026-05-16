@@ -1,138 +1,175 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
+import { use } from "react";
+import { articles } from "@/lib/data";
+import { notFound } from "next/navigation";
+import { Play, ArrowRight, Youtube, Instagram, Facebook, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { ArticleHero } from "@/components/ArticleHero";
-import { MidArticleImage } from "@/components/MidArticleImage";
 
-export default function ArticlePage() {
-  // This would normally get the article from params, but for now showing a sample
-  const article = {
-    title: "As Cyber Threats Accelerate, Human Awareness Remains the Critical Weakness",
-    author: "Muhammad Raza",
-    date: "April 15, 2026",
-    description: "Exploring how human vulnerability in cybersecurity remains the greatest risk factor in our increasingly digital world. Organizations invest heavily in technology, but the human element often becomes the weakest link.",
-    imagePath: "/images/article.jpg",
-  };
+const XIcon = (props: any) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24h-2.19L17.61 20.644Z" />
+  </svg>
+);
+
+export default function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const article = articles.find((a) => a.slug === slug);
+
+  if (!article) {
+    notFound();
+  }
 
   return (
-    <main className="min-h-screen bg-background pt-[140px] pb-24">
-      <div className="container-tight px-6 mb-12 mt-[20px]">
-        <Link 
-          href="/articles" 
-          className="inline-flex items-center gap-2 text-primary font-bold tracking-widest uppercase text-xs hover:gap-3 transition-all px-[20px] py-[10px] bg-primary/5 rounded-full"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          BACK TO ARTICLES
-        </Link>
-      </div>
-
-      <ArticleHero
-        title={article.title}
-        author={article.author}
-        date={article.date}
-        description={article.description}
-        imagePath={article.imagePath}
-      />
-
-      {/* Article Content */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6">
-        <div className="container-tight max-w-3xl mx-auto">
-          <div className="prose prose-invert max-w-none">
-            <div className="space-y-6 text-muted-foreground leading-relaxed text-base sm:text-lg">
-              <p>
-                In today's rapidly evolving digital landscape, organizations face an unprecedented wave of cyber threats. From ransomware attacks to data breaches, the consequences have become increasingly severe. Yet, despite massive investments in cutting-edge security technology, one vulnerability remains consistently exploited: human awareness.
-              </p>
-
-              <p>
-                The statistics paint a sobering picture. According to recent research, over 90% of successful data breaches involve some form of human error. Whether it's clicking a malicious link, using weak passwords, or inadvertently sharing sensitive information, the human element remains the weakest link in the security chain.
-              </p>
-
-              <p>
-                This disconnect between technological sophistication and human preparedness represents a critical gap in our collective security posture. No amount of firewalls, encryption, or intrusion detection systems can fully compensate for an uninformed user base.
-              </p>
-            </div>
-          </div>
-
-          <MidArticleImage
-            imagePath="/images/data-breach-alert.png"
-            caption="A system alert indicating a critical data breach — the nightmare scenario for any organization."
-          />
-
-          <div className="space-y-6 text-muted-foreground leading-relaxed mt-12 text-base sm:text-lg">
-            <p>
-              The challenge lies not just in the technical implementation of security measures, but in the cultural shift required to make cybersecurity awareness a fundamental part of organizational DNA.
-            </p>
-
-            <MidArticleImage
-              imagePath="/images/phishing-example.png"
-              caption="Phishing scams often use scare tactics and suspicious links to trick users into revealing sensitive data."
-            />
-
-            <p>
-              This requires:
-            </p>
-
-            <ul className="list-disc list-inside space-y-3 ml-4">
-              <li>Regular, ongoing training programs that evolve with emerging threats</li>
-              <li>Clear communication of security policies and their rationale</li>
-              <li>Creation of a psychological safety environment where users can report suspicious activity</li>
-              <li>Incentivization of secure practices rather than punishment for honest mistakes</li>
-            </ul>
-
-            <p>
-              Organizations that have successfully implemented comprehensive awareness programs report significantly lower breach rates. The investment in human-centered security often yields better returns than equivalent spending on technological solutions alone.
-            </p>
-
-            <p>
-              As cyber threats continue to accelerate in sophistication and scale, the path forward is clear: we must place the human element at the center of our cybersecurity strategy. Not as a liability to be contained, but as the strongest asset we possess—when properly informed, empowered, and supported.
-            </p>
-          </div>
-
-          {/* Detailed Threat Analysis Section */}
-          <div className="mt-20 pt-12 border-t border-border/50">
-            <h2 className="font-display font-bold mb-8 text-black text-center sm:text-left">
-              Detailed Threat <span className="text-primary">Analysis</span>
-            </h2>
+    <main className="min-h-screen bg-[#F5F5F5] pt-32 pb-24 selection:bg-black selection:text-white">
+      <div className="max-w-[1240px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-16 lg:gap-24">
+        {/* Main Content Column */}
+        <div className="space-y-12">
+          <header className="space-y-10">
+            <h1 className="text-[48px] md:text-[76px] font-bold text-[#1A1A1A] leading-[1.02] tracking-tightest font-sans">
+              {article.title}
+            </h1>
             
-            <div className="space-y-12 sm:space-y-16">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4 text-center sm:text-left">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground uppercase tracking-tight">Visualizing a Data Breach</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                    When a breach occurs, the immediate impact is often felt through system alerts. 
-                    This visualization represents the critical moment a security perimeter is compromised, 
-                    triggering organization-wide protocols.
-                  </p>
-                </div>
-                <div className="order-first sm:order-last">
-                  <MidArticleImage
-                    imagePath="/images/data-breach-alert.png"
-                    caption="A high-intensity visualization of a data breach alert system."
-                  />
-                </div>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-[12px] font-bold uppercase tracking-[0.2em] text-black">
+                <span>written by</span>
+                <span className="text-black font-black">{article.author}</span>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="order-first">
-                  <MidArticleImage
-                    imagePath="/images/phishing-example.png"
-                    caption="Deconstructing a typical mobile phishing attack."
-                  />
-                </div>
-                <div className="space-y-4 text-center sm:text-left">
-                  <h3 className="text-lg sm:text-xl font-bold text-foreground uppercase tracking-tight">Anatomy of a Phishing Scam</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                    Modern phishing scams are meticulously designed to exploit psychology. 
-                    By utilizing "Scare Tactics" and spoofed URLs, attackers create a false 
-                    sense of urgency that leads even experienced users to make critical errors.
-                  </p>
+              <div className="flex items-center gap-3 text-[12px] font-bold uppercase tracking-[0.2em] text-black">
+                <span>filed under</span>
+                <div className="flex items-center gap-2 text-black font-black">
+                  {article.category.toUpperCase()} 
+                  {article.tags && article.tags.length > 0 && (
+                    <>
+                      <span className="text-black/30 font-normal">|</span>
+                      {article.tags.join(" | ")}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
+
+            <button className="flex items-center gap-4 px-8 py-4 border-2 border-[#1A1A1A] rounded-full font-black uppercase tracking-widest text-[12px] hover:bg-[#1A1A1A] hover:text-white transition-all group mt-8">
+              <div className="w-6 h-6 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
+                <Play className="w-3 h-3 fill-current ml-0.5" />
+              </div>
+              Listen to this article
+            </button>
+
+            <div className="w-full h-[2px] bg-black mt-16" />
+          </header>
+
+          <article className="max-w-none">
+             <div className="font-playfair text-[20px] md:text-[22px] leading-[1.85] text-black space-y-10">
+               <p className="first-letter:text-[100px] first-letter:font-bold first-letter:text-black first-letter:float-left first-letter:mr-6 first-letter:mt-4 first-letter:leading-[0.6] font-playfair">
+                 {article.content?.split('\n\n')[0]}
+               </p>
+               {article.content?.split('\n\n').slice(1).map((para, i) => {
+                 const isReferencesHeader = para.trim().toUpperCase() === "REFERENCES:";
+                 if (isReferencesHeader) {
+                   return (
+                     <h2 key={i} className="text-xl font-bold text-[#1A1A1A] mt-20 mb-6 tracking-widest uppercase border-b-2 border-black pb-2 inline-block font-sans">
+                       References
+                     </h2>
+                   );
+                 }
+
+                 const isHeader = para.length < 60 && !para.includes('.') && !para.includes(',');
+                 if (isHeader) {
+                   return (
+                     <h2 key={i} className="text-3xl font-bold text-[#1A1A1A] mt-16 mb-8 tracking-tight font-sans">
+                       {para}
+                     </h2>
+                   );
+                 }
+                 
+                 // Check if it's a reference list item (starts with a known source or has a specific pattern)
+                 const isReferenceItem = article.content?.includes("REFERENCES:") && i > article.content.split('\n\n').findIndex(p => p.trim().toUpperCase() === "REFERENCES:");
+
+                 return (
+                   <p key={i} className={`font-playfair ${isReferenceItem ? "text-[15px] text-black/60 leading-relaxed mb-4" : "text-black"}`}>
+                     {para}
+                   </p>
+                 );
+               })}
+             </div>
+          </article>
+
+          {/* Newsletter Signup Section */}
+          <section className="mt-24 pt-16 border-t-2 border-black space-y-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#1A1A1A] uppercase tracking-tight font-sans">
+              GET YOUR SHIT TOGETHER — HERE’S HOW
+            </h2>
+            <p className="text-lg md:text-xl text-[#333] font-playfair leading-relaxed max-w-2xl">
+              Enter your email address below and I’ll send you a 55-page guide showing you how to develop rock-solid self-discipline and healthy habits that last.
+            </p>
+            
+            <div className="relative max-w-2xl">
+              <form onSubmit={(e) => e.preventDefault()} className="relative flex items-center">
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  className="w-full bg-white border-2 border-[#1A1A1A] rounded-full py-5 px-8 text-[16px] font-medium text-black focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1A1A1A] text-white px-8 rounded-full text-[12px] font-black uppercase tracking-widest hover:bg-black/90 transition-colors"
+                >
+                  GET EBOOK
+                </button>
+              </form>
+            </div>
+
+            <p className="text-[14px] italic text-[#666] font-playfair">
+              Your information is protected and I never spam, ever. You can view my privacy policy <a href="#" className="underline hover:text-black">here</a>.
+            </p>
+          </section>
         </div>
-      </section>
+
+        {/* Sidebar Column */}
+        <aside className="lg:border-l-2 lg:border-black lg:pl-20 space-y-16">
+          <div className="space-y-8">
+            <h3 className="text-[12px] font-bold uppercase tracking-[0.3em] text-black">
+              About the Author
+            </h3>
+            
+            <p className="text-[16px] leading-[1.8] text-black font-playfair italic">
+              {article.authorBio}
+            </p>
+
+            <Link 
+              href="/about" 
+              className="flex items-center gap-4 group pt-2"
+            >
+              <div className="w-10 h-10 bg-[#1A1A1A] rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shrink-0 shadow-lg shadow-black/10">
+                <ArrowRight className="w-5 h-5" />
+              </div>
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#1A1A1A] border-b-2 border-transparent group-hover:border-black transition-all">
+                Learn more about {article.author.split(' ').map(n => n.charAt(0).toUpperCase() + n.slice(1).toLowerCase())[0]}
+              </span>
+            </Link>
+          </div>
+
+          <div className="pt-12 flex gap-4 border-t-2 border-black">
+            <SocialIcon icon={<Youtube className="w-4 h-4" />} />
+            <SocialIcon icon={<Instagram className="w-4 h-4" />} />
+            <SocialIcon icon={<XIcon className="w-4 h-4" />} />
+            <SocialIcon icon={<Facebook className="w-4 h-4" />} />
+            <SocialIcon icon={<Linkedin className="w-4 h-4" />} />
+          </div>
+        </aside>
+      </div>
     </main>
+  );
+}
+
+function SocialIcon({ icon }: { icon: React.ReactNode }) {
+  return (
+    <a 
+      href="#" 
+      className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 hover:bg-[#1A1A1A] hover:text-white transition-all shadow-sm"
+    >
+      {icon}
+    </a>
   );
 }

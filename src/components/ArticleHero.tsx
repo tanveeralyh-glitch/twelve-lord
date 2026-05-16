@@ -1,86 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, User, Clock } from "lucide-react";
+import { useState } from "react";
 
-interface ArticleHeroProps {
-  title: string;
-  author: string;
-  date: string;
-  description: string;
-  imagePath: string;
-}
+export const ArticleHero = () => {
+  const [search, setSearch] = useState("");
 
-export const ArticleHero = ({
-  title,
-  author,
-  date,
-  description,
-  imagePath,
-}: ArticleHeroProps) => {
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 px-4 overflow-hidden pt-32 sm:pt-40">
-      <div className="container-tight">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 md:gap-12 items-center min-h-[500px]">
-          {/* Left: Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6 text-center lg:text-left"
-          >
-            <div>
-              <h1 className="font-bold leading-tight text-black">
-                {title.split(' ').slice(0, -1).join(' ')} 
-                <span className=""> {title.split(' ').pop()}</span>
-              </h1>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-[12px] sm:text-sm font-medium text-foreground/80">
-                <User className="h-4 w-4 text-primary" />
-                <span>{author}</span>
-              </div>
-              <div className="flex items-center gap-2 text-[12px] sm:text-sm font-medium text-foreground/80">
-                <Calendar className="h-4 w-4 text-primary" />
-                <span>{date}</span>
-              </div>
-              <div className="flex items-center gap-2 text-[12px] sm:text-sm font-medium text-foreground/80">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>8 min read</span>
-              </div>
-            </div>
-
-            <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              {description}
+    <section className="pt-40 bg-[#DCE2E2]">
+      <div className="container-tight px-6 pb-20 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-black tracking-tightest mb-8 uppercase">
+            Articles
+          </h1>
+          
+          <div className="max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base text-black font-medium leading-relaxed">
+              I’ve written hundreds of articles on everything from psychology and philosophy, to productivity and life purpose. Below is a collection of my best work, categorized by topic. Or, if you’re looking for something specific, use the search bar.
             </p>
-          </motion.div>
+          </div>
+        </motion.div>
+      </div>
 
-          {/* Right: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative h-[300px] sm:h-[400px] md:h-[500px] group order-first lg:order-last"
-          >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full h-full rounded-2xl overflow-hidden shadow-premium"
-            >
-              <img
-                src={imagePath}
-                alt={title}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+      {/* New Orange Search Bar */}
+      <div className="bg-[#FF6B00] py-6">
+        <div className="container-tight px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <h2 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+            Looking for something specific?
+          </h2>
+          
+          <div className="relative w-full max-w-md">
+            <form onSubmit={(e) => e.preventDefault()} className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="Type to search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full bg-white rounded-full py-4 px-8 pr-32 text-sm font-medium text-black focus:outline-none shadow-inner"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-background/10" />
-              {/* Glow overlay */}
-              <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
-            </motion.div>
-          </motion.div>
+              <button
+                type="submit"
+                className="absolute right-1.5 top-1.5 bottom-1.5 bg-[#1A1A1A] text-white px-8 rounded-full text-xs font-black uppercase tracking-widest hover:bg-black transition-colors"
+              >
+                SEARCH
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
+

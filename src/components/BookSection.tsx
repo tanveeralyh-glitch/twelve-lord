@@ -59,20 +59,15 @@ export const BookSection = () => {
 
           {/* IMAGE - Order 2 on mobile, 1 on desktop */}
           <motion.div
-            initial={{ opacity: 0, x: -50, rotateY: 30 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: -15 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative flex justify-center perspective-[1000px] order-2 lg:order-1 w-full"
+            className="relative flex justify-center order-2 lg:order-1 w-full"
           >
             <div className="relative group w-full flex justify-center">
-              {/* Shadow behind book */}
-              <div className="absolute -bottom-10 -right-10 w-full h-full bg-black/40 blur-3xl rounded-lg -z-10 group-hover:bg-black/50 transition-all duration-500" />
-              
               <motion.div 
-                whileHover={{ rotateY: -5, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] aspect-[3/4.5] shadow-[40px_40px_80px_-15px_rgba(0,0,0,0.8)] rounded-r-sm overflow-hidden transform-gpu"
+                className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] aspect-[3/4.5] rounded-r-sm overflow-hidden transform-gpu"
               >
                 <Image
                   src={mainBook.image}
@@ -80,12 +75,7 @@ export const BookSection = () => {
                   fill
                   priority
                   className="object-cover"
-                  style={{ imageRendering: 'auto' }}
                 />
-                {/* Book Spine Edge effect */}
-                <div className="absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-black/40 to-transparent z-10" />
-                {/* Surface Shine */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none z-10" />
               </motion.div>
             </div>
           </motion.div>

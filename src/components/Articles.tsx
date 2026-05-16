@@ -28,14 +28,14 @@ export const Articles = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-black mx-auto"
+            className="text-black mx-auto text-4xl md:text-5xl font-black uppercase tracking-tight"
           >
             Thought, Technology & the Modern World
           </motion.h2>
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y-4 border-black/10 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y-2 border-[#1A1A1A] text-center">
           {featuredArticles.map((article, index) => (
             <motion.div
               key={article.slug}
@@ -43,25 +43,26 @@ export const Articles = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative group p-8 md:p-10 lg:p-12 ${
-                index < featuredArticles.length - 1 ? "md:border-r-4 border-black/10" : ""
+              className={`relative group p-10 md:p-12 lg:p-16 ${
+                index < featuredArticles.length - 1 ? "md:border-r-2 border-[#1A1A1A]" : ""
               }`}
             >
               <Link href={`/articles/${article.slug}`} className="block h-full flex flex-col items-center">
-                <div className="flex items-center justify-center gap-4 text-[10px] font-bold text-black/50 uppercase tracking-widest mb-6">
-                  <span className="flex items-center gap-1.5"><User className="w-3 h-3 text-red-600" /> {article.author}</span>
-                  <span className="flex items-center gap-1.5"><Calendar className="w-3 h-3 text-red-600" /> {article.publishDate}</span>
+                <div className="flex items-center justify-center gap-4 text-[10px] font-bold text-black uppercase tracking-[0.2em] mb-8">
+                  <span>{article.author}</span>
+                  <span className="w-1 h-1 rounded-full bg-black/20" />
+                  <span>{article.publishDate}</span>
                 </div>
                 
-                <h3 className="text-xl lg:text-2xl font-bold text-black group-hover:text-red-600 transition-colors duration-300 leading-tight mb-6">
+                <h3 className="text-2xl lg:text-3xl font-bold text-black group-hover:opacity-70 transition-opacity duration-300 leading-tight mb-8 font-sans">
                   {article.title}
                 </h3>
                 
-                <p className="text-black/70 leading-relaxed text-sm lg:text-base line-clamp-4 mb-8">
+                <p className="text-black leading-relaxed text-base font-playfair line-clamp-4 mb-10">
                   {article.preview}
                 </p>
                 
-                <div className="mt-auto pt-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-black/40 group-hover:text-red-600 group-hover:gap-4 transition-all">
+                <div className="mt-auto pt-6 flex items-center justify-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-[#1A1A1A] group-hover:gap-5 transition-all">
                   Read More <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>
@@ -75,11 +76,11 @@ export const Articles = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 flex justify-center"
+          className="mt-20 flex justify-center"
         >
           <Link href="/articles">
-            <button className="bg-red-600 text-white hover:bg-red-700 px-10 py-4 flex items-center justify-center gap-3 text-base font-bold rounded-full transition-all">
-              Read Articles <ArrowRight className="w-5 h-5" />
+            <button className="bg-[#1A1A1A] text-white hover:bg-black px-12 py-5 flex items-center justify-center gap-4 text-sm font-black uppercase tracking-widest transition-all">
+              See All Articles <ArrowRight className="w-5 h-5" />
             </button>
           </Link>
         </motion.div>

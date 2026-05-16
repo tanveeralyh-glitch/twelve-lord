@@ -37,7 +37,7 @@ export const Tech = () => {
             <div className="hidden lg:block pt-4">
               <Link
                 href="/tech"
-                className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                className="group relative px-10 py-4 rounded-full border-2 border-white/20 text-white font-bold text-sm transition-all duration-300 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 View Specifications <ArrowUpRight className="h-4 w-4" />
               </Link>
@@ -123,7 +123,6 @@ export const Tech = () => {
 
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8">
                 <motion.div 
-                  whileHover={{ scale: 1.05 }}
                   className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white border border-white/10"
                 >
                   <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
@@ -141,7 +140,7 @@ export const Tech = () => {
           <div className="order-3 lg:hidden w-full flex justify-center">
             <Link
               href="/tech"
-              className="group relative px-10 py-5 rounded-full border-2 border-white/20 text-white font-bold text-base transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black inline-flex items-center justify-center gap-2 w-full"
+              className="group relative px-10 py-5 rounded-full border-2 border-white/20 text-white font-bold text-base transition-all duration-300 inline-flex items-center justify-center gap-2 w-full"
             >
               View Specifications <ArrowUpRight className="h-4 w-4" />
             </Link>

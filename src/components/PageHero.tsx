@@ -77,16 +77,16 @@ const CodingAnimation = () => (
 
 export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
   return (
-    <section className="relative pt-24 pb-20 overflow-hidden">
+    <section className="relative pt-40 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
       <div className="container-tight relative">
         <div className="flex flex-col items-center text-center space-y-8">
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl mx-auto w-full space-y-4 text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-6xl md:text-8xl font-sans font-black tracking-tighter text-[#1a1a1a] leading-[1.1] uppercase"
+              className="text-4xl md:text-6xl font-sans font-black tracking-tighter text-[#1a1a1a] leading-[1.1] uppercase mx-auto text-center"
             >
               {title}
             </motion.h1>
@@ -95,7 +95,7 @@ export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-xl text-muted-foreground"
+                className="text-base text-black mx-auto max-w-2xl text-center mt-6"
               >
                 {subtitle}
               </motion.p>
