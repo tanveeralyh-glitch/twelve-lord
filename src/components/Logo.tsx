@@ -18,25 +18,11 @@ export const Logo = ({
   showBg = true
 }: LogoProps) => (
   <div className={`relative ${className}`}>
-    {!showBg && (
-      <svg width="0" height="0" className="absolute">
-        <filter id="remove-black" colorInterpolationFilters="sRGB">
-          <feColorMatrix
-            type="matrix"
-            values="1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    10 10 10 0 -0.1"
-          />
-        </filter>
-      </svg>
-    )}
     <Link href="/" className="flex items-center">
       <img
         src={logo.src}
-        alt="c:\Users\tanveer\Downloads\logo mian.jpeg"
+        alt="Twelve Lords Logo"
         className={`w-auto object-contain ${imgClassName}`}
-        style={!showBg ? { filter: "url(#remove-black)" } : {}}
       />
     </Link>
   </div>
