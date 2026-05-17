@@ -35,7 +35,7 @@ export const Articles = () => {
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y-2 border-[#1A1A1A] text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-[#1A1A1A] text-center">
           {featuredArticles.map((article, index) => (
             <motion.div
               key={article.slug}
