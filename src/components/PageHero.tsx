@@ -86,7 +86,7 @@ export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-sans font-black tracking-tighter text-[#1a1a1a] leading-[1.1] uppercase mx-auto text-center"
+              className="text-4xl md:text-6xl font-sans font-black tracking-tighter text-black leading-[1.1] uppercase mx-auto text-center"
             >
               {title}
             </motion.h1>

@@ -4,11 +4,43 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Volume2, VolumeX, Youtube, ArrowRight } from "lucide-react";
 
+interface YTPlayer {
+  playVideo: () => void;
+  pauseVideo: () => void;
+  mute: () => void;
+  unMute: () => void;
+}
+
+interface YouTubeWindow extends Window {
+  onYouTubeIframeAPIReady?: (() => void) | null;
+  YT?: {
+    Player: new (
+      id: string,
+      options: {
+        videoId: string;
+        playerVars: {
+          autoplay: number;
+          mute: number;
+          controls: number;
+          showinfo: number;
+          rel: number;
+          loop: number;
+          playlist: string;
+          modestbranding: number;
+        };
+        events: {
+          onReady: (event: { target: YTPlayer }) => void;
+        };
+      }
+    ) => YTPlayer;
+  };
+}
+
 export const VideoSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.5 });
   const [isMuted, setIsMuted] = useState(true);
-  const [player, setPlayer] = useState<any>(null);
+  const [player, setPlayer] = useState<YTPlayer | null>(null);
   const playerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,29 +50,33 @@ export const VideoSection = () => {
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
 
-    (window as any).onYouTubeIframeAPIReady = () => {
-      const newPlayer = new (window as any).YT.Player("youtube-player", {
-        videoId: "F3tQPF4RcJM",
-        playerVars: {
-          autoplay: 0,
-          mute: 1,
-          controls: 0,
-          showinfo: 0,
-          rel: 0,
-          loop: 1,
-          playlist: "F3tQPF4RcJM", // Required for loop
-          modestbranding: 1,
-        },
-        events: {
-          onReady: (event: any) => {
-            setPlayer(event.target);
+    const ytWindow = window as unknown as YouTubeWindow;
+
+    ytWindow.onYouTubeIframeAPIReady = () => {
+      if (ytWindow.YT) {
+        new ytWindow.YT.Player("youtube-player", {
+          videoId: "F3tQPF4RcJM",
+          playerVars: {
+            autoplay: 0,
+            mute: 1,
+            controls: 0,
+            showinfo: 0,
+            rel: 0,
+            loop: 1,
+            playlist: "F3tQPF4RcJM", // Required for loop
+            modestbranding: 1,
           },
-        },
-      });
+          events: {
+            onReady: (event: { target: YTPlayer }) => {
+              setPlayer(event.target);
+            },
+          },
+        });
+      }
     };
 
     return () => {
-      (window as any).onYouTubeIframeAPIReady = null;
+      ytWindow.onYouTubeIframeAPIReady = null;
     };
   }, []);
 

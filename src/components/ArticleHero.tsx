@@ -20,7 +20,7 @@ export const ArticleHero = () => {
           </h1>
           
           <div className="max-w-2xl mx-auto">
-            <p className="text-sm sm:text-base text-black/80 font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-black font-medium leading-relaxed">
               I’ve written hundreds of articles on everything from psychology and philosophy, to productivity and life purpose. Below is a collection of my best work, categorized by topic.
             </p>
           </div>

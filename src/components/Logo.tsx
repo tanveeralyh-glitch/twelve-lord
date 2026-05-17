@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo_hd.png";
 
 
 interface LogoProps {

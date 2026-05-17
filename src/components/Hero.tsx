@@ -45,7 +45,7 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-black leading-[1.1] text-black mb-6 md:mb-10 tracking-tight text-[32px] sm:text-6xl lg:text-[80px] max-w-[90vw]"
             >
-              Master Your <span className="text-primary">Digital Frontier</span> With Timeless Truths
+              Master Your Digital Frontier With Timeless Truths
             </motion.h1>
 
             {/* Paragraph */}
