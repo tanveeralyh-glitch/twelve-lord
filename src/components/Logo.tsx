@@ -25,7 +25,9 @@ export const Logo = ({
         <img
           src={logoSrc}
           alt="Twelve Lords Logo"
-          className={`w-auto object-contain ${imgClassName}`}
+          className={`w-auto object-contain ${imgClassName} ${
+            variant === "dark" ? "bg-black" : "bg-[#DCE2E2]"
+          }`}
         />
       </Link>
     </div>
