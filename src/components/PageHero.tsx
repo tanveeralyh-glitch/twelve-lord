@@ -76,9 +76,19 @@ const CodingAnimation = () => (
 );
 
 export const PageHero = ({ title, subtitle, type }: PageHeroProps) => {
+  const isTech = type === "tech";
+
   return (
-    <section className="relative pt-40 pb-20 overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
+    <section 
+      className={`relative overflow-hidden ${
+        isTech 
+          ? "pt-48 md:pt-56 pb-24 bg-[#DCE2E2] border-b border-black" 
+          : "pt-40 pb-20"
+      }`}
+    >
+      {!isTech && (
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
+      )}
       <div className="container-tight relative">
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="max-w-3xl mx-auto w-full space-y-4 text-center">

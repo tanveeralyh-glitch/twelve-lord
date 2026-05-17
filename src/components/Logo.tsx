@@ -11,11 +11,11 @@ interface LogoProps {
   showBg?: boolean;
 }
 
-export const Logo = ({ 
-  variant = "light", 
-  className = "", 
+export const Logo = ({
+  variant = "light",
+  className = "",
   imgClassName = "h-24 md:h-32",
-  showBg = true 
+  showBg = true
 }: LogoProps) => (
   <div className={`relative ${className}`}>
     {!showBg && (
@@ -34,7 +34,7 @@ export const Logo = ({
     <Link href="/" className="flex items-center">
       <img
         src={logo.src}
-        alt="Twelve Lords Logo"
+        alt="c:\Users\tanveer\Downloads\logo mian.jpeg"
         className={`w-auto object-contain ${imgClassName}`}
         style={!showBg ? { filter: "url(#remove-black)" } : {}}
       />
