@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/assets/logo_hd.png";
-
+import logoHeader from "@/assets/logo_hd.png";
+import logoFooter from "@/assets/logo_black.jpg";
 
 interface LogoProps {
   variant?: "light" | "dark";
@@ -16,14 +16,18 @@ export const Logo = ({
   className = "",
   imgClassName = "h-24 md:h-32",
   showBg = true
-}: LogoProps) => (
-  <div className={`relative ${className}`}>
-    <Link href="/" className="flex items-center">
-      <img
-        src={logo.src}
-        alt="Twelve Lords Logo"
-        className={`w-auto object-contain ${imgClassName}`}
-      />
-    </Link>
-  </div>
-);
+}: LogoProps) => {
+  const logoSrc = variant === "dark" ? logoFooter.src : logoHeader.src;
+
+  return (
+    <div className={`relative ${className}`}>
+      <Link href="/" className="flex items-center">
+        <img
+          src={logoSrc}
+          alt="Twelve Lords Logo"
+          className={`w-auto object-contain ${imgClassName}`}
+        />
+      </Link>
+    </div>
+  );
+};
